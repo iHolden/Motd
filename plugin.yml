@@ -1,0 +1,5 @@
+name: Motd
+main: me.iHolden.Motd.Motd
+version: 1.0
+commands:
+  motd:
