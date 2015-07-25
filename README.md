@@ -1,0 +1,2 @@
+# Motd
+A simple motd.
