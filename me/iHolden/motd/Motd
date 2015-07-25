@@ -1,0 +1,42 @@
+package me.iHolden.Motd;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Motd extends JavaPlugin implements Listener {
+	
+    @Override
+    public void onEnable() {
+        Bukkit.getServer().getPluginManager().registerEvents(this, this);
+    }
+
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	    if (cmd.getName().equalsIgnoreCase("motd" )) {
+	        Player p = (Player)sender;
+	        if (sender instanceof Player){
+	        	p.sendMessage("");
+	        	p.sendMessage("");
+	        	p.sendMessage("");
+	        	p.sendMessage(ChatColor.DARK_GRAY + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+	            p.getPlayer().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "+" + ChatColor.GRAY + "]" + ChatColor.AQUA + " Hello, " + p.getName() + "! Here's today's scoop!");
+	            p.getPlayer().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "+" + ChatColor.GRAY + "]" + ChatColor.YELLOW + " a line of text");
+	            p.getPlayer().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "+" + ChatColor.GRAY + "]" + ChatColor.YELLOW + " another line of text");
+	            p.getPlayer().sendMessage(ChatColor.GRAY + "[" + ChatColor.RED + "+" + ChatColor.GRAY + "]" + ChatColor.YELLOW + " really cool text here");
+	            p.getPlayer().sendMessage(ChatColor.DARK_GRAY + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+	         // p.getName() translates in-game to player's username who typed /motd
+	         // p.getPlayer() gets the player who typed /motd
+	         // ChatColor.COLOR just is in game colors like &5
+	            p.playSound(p.getLocation(), Sound.LAVA_POP, 2F, 1F);
+	            return true;
+	        }
+	    }
+	return false;
+	}
+
+}
